@@ -1,0 +1,55 @@
+<html>
+  <%= nav_bar brand: 'Loja', brand_link: root_url %>
+    <div class="container">
+      <body>
+      
+        <%= form_for Produto.new do |form| %>
+          <%# Nome <input type="text" name='produto[nome]'></br>
+          Descrição <textarea name="produto[descricao]"></textarea></br>
+          Preço <input type="number" name='produto[preco]' step='0.01'></br>
+          Quantidade <input type="number" name='produto[quantidade]'></br>
+
+          <button type="submit">Criar</button> %>
+
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="form-group">
+                <%= form.label :nome, 'Nome' %>
+                <%= form.text_field :nome, class:"form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="form-group">
+                <%= form.label :descricao, 'Descrição' %>
+                <%= form.text_area :nome, class:"form-control", rows: 4 %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <%= form.label :preco, 'Preço' %>
+                <%= form.number_field :nome, step:0.01, class:"form-control" %>
+              </div>
+            </div>
+          </div>  
+
+            <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <%= form.label :quantidade, 'Quantidade' %>
+                <%= form.number_field :nome, step:1, class:"form-control" %>
+              </div>
+            </div>
+          </div>   
+
+          <%= form.submit 'Criar', class:'btn btn-primary' %>
+
+        <% end %>
+     </body>
+    </div>
+</html>
